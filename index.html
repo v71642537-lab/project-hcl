@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vishnu | Resume Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+            color: #222;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scroll Animation Canvas */
+        #scrollAnimation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.08; /* watermark effect */
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            padding: 60px 20px 40px;
+            text-align: center;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(6px);
+        }
+
+        header h1 {
+            font-size: 42px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255,255,255,0.92);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+            color: #0d47a1;
+            border-bottom: 2px solid #0d47a1;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-box {
+            background: #f1f5ff;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media(max-width:768px){
+            header h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Scroll Animation -->
+    <img id="scrollAnimation" src="frames/ezgif-frame-001.jpg">
+
+    <header>
+        <h1>VISHNU</h1>
+        <p>Ramanathapuram, Tamil Nadu | 📞 9677863792 | ✉ v71642537@gmail.com</p>
+    </header>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <p>
+            Electronics and Communication Engineering student (CGPA: 8.09) with strong foundations in Embedded Systems, IoT, Python programming, and VLSI design. Seeking entry-level opportunities in Embedded Systems, Core ECE, or IT roles where I can apply analytical, programming, and hardware debugging skills to develop innovative and efficient technical solutions.
+        </p>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <p><strong>B.E. Electronics and Communication Engineering (2022–2026)</strong></p>
+        <p>Government College of Engineering, Tirunelveli</p>
+        <p>CGPA: 8.09</p>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-box">Programming: Python</div>
+            <div class="skill-box">Tools: Microsoft Excel</div>
+            <div class="skill-box">Embedded Systems</div>
+            <div class="skill-box">Internet of Things (IoT)</div>
+            <div class="skill-box">VLSI Chip Design</div>
+            <div class="skill-box">Circuit Debugging</div>
+            <div class="skill-box">Hardware Troubleshooting</div>
+            <div class="skill-box">Microcontrollers</div>
+            <div class="skill-box">Sensors Integration</div>
+            <div class="skill-box">Basic PCB Understanding</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Academic Projects</h2>
+        <ul>
+            <li>
+                <strong>IoT-Based Soil Moisture Detection System</strong> – Developed a real-time monitoring system using sensors and IoT modules to optimize irrigation efficiency and reduce water wastage.
+            </li>
+            <br>
+            <li>
+                <strong>Smart Anti-Fog Glasses</strong> – Designed an embedded system that detects fog formation and automatically activates heating mechanism to improve user visibility and safety.
+            </li>
+            <br>
+            <li>
+                <strong>Embedded-Based Fire Detection & Extinguishing System</strong> – Built a sensor-driven fire detection system with automatic response mechanism for early-stage fire prevention.
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Soft Skills</h2>
+        <ul>
+            <li>Problem-Solving</li>
+            <li>Analytical Thinking</li>
+            <li>Team Collaboration</li>
+            <li>Quick Learner</li>
+            <li>Adaptability</li>
+        </ul>
+    </section>
+
+    <footer>
+        © 2026 Vishnu | Designed Portfolio Resume
+    </footer>
+
+    <script>
+        const frameCount = 240;
+        const img = document.getElementById("scrollAnimation");
+
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const scrollFraction = scrollTop / maxScroll;
+            const frameIndex = Math.min(
+                frameCount - 1,
+                Math.floor(scrollFraction * frameCount)
+            );
+
+            const paddedIndex = String(frameIndex + 1).padStart(3, '0');
+            img.src = `frames/ezgif-frame-${paddedIndex}.jpg`;
+        });
+    </script>
+
+</body>
+</html>
